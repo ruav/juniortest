@@ -3,6 +3,8 @@
  */
 package ru.transpult.juniortest.domain.entities;
 
+import ru.transpult.juniortest.pojo.Department;
+
 import javax.persistence.*;
 
 /**
@@ -12,7 +14,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class EmployeeEntity {
 
     @Id
     @SequenceGenerator(name="pk_sequence",sequenceName="employees_id_seq", allocationSize=1)
@@ -24,10 +26,13 @@ public class Employee {
     @Column(name="surname")
     private String surName;
 
-//    @Column(name = "department_id", unique=true, nullable=false)
-//    private Department department;
+    private int department_id;
 
-    public Employee() {
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name="id")
+//    private DepartmentEntity department;
+
+    public EmployeeEntity() {
 
     }
 
@@ -55,11 +60,19 @@ public class Employee {
         this.surName = surName;
     }
 
-//    public Department getDepartment() {
+    public int getDepartment_id() {
+        return department_id;
+    }
+
+    public void setDepartment_id(int department_id) {
+        this.department_id = department_id;
+    }
+
+//    public DepartmentEntity getDepartment() {
 //        return department;
 //    }
 //
-//    public void setDepartment(Department department) {
+//    public void setDepartment(DepartmentEntity department) {
 //        this.department = department;
 //    }
 }

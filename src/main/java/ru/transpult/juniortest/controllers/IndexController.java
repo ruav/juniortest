@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class IndexController {
 
     
     @RequestMapping("/")
     public String index() throws SystemException {
-	return "resources/index.html";
+	return "resources/index2";
     }
 }

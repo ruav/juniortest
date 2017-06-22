@@ -4,7 +4,6 @@
 package ru.transpult.juniortest.domain.entities;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -14,7 +13,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "departments")
-public class Department {
+public class DepartmentEntity {
 
     @Id
     @SequenceGenerator(name="pk_sequence",sequenceName="departments_id_seq", allocationSize=1)
@@ -31,7 +30,7 @@ public class Department {
             joinColumns = @JoinColumn(name="department_id"),
             inverseJoinColumns = @JoinColumn(name="subdepartment_id")
     )
-    private Set<Department> departments;
+    private Set<DepartmentEntity> departments;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -39,9 +38,9 @@ public class Department {
             joinColumns = @JoinColumn(name="department"),
             inverseJoinColumns = @JoinColumn(name="id")
     )
-    private Set<Employee> employees;
+    private Set<EmployeeEntity> employees;
 
-    public Department() {
+    public DepartmentEntity() {
     }
 
     public long getId() {
@@ -60,19 +59,19 @@ public class Department {
         this.name = name;
     }
 
-    public Set<Department> getDepartments() {
+    public Set<DepartmentEntity> getDepartments() {
         return departments;
     }
 
-    public void setDepartments(Set<Department> departments) {
+    public void setDepartments(Set<DepartmentEntity> departments) {
         this.departments = departments;
     }
 
-    public Set<Employee> getEmployees() {
+    public Set<EmployeeEntity> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Set<Employee> employees) {
+    public void setEmployees(Set<EmployeeEntity> employees) {
         this.employees = employees;
     }
 }
