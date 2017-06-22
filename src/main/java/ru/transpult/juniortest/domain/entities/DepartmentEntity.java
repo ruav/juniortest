@@ -32,13 +32,13 @@ public class DepartmentEntity {
     )
     private Set<DepartmentEntity> departments;
 
-//    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name="empldepartment",
-            joinColumns = @JoinColumn(name = "department_id"),
-            inverseJoinColumns = @JoinColumn(name = "employee_id")
-    )
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name="empldepartment",
+//            joinColumns = @JoinColumn(name = "department_id"),
+//            inverseJoinColumns = @JoinColumn(name = "employee_id")
+//    )
     private Set<EmployeeEntity> employees;
 
     public DepartmentEntity() {
