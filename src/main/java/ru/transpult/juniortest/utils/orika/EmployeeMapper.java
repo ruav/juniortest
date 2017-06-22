@@ -23,7 +23,7 @@ public class EmployeeMapper extends ConfigurableMapper {
                 .field("id","id")
                 .field("name","name")
                 .field("surName","surName")
-                .field("department_id","department_id")
+//                .field("department_id","department_id")
 //                .field("department","department")
                 .byDefault()
                 .register();

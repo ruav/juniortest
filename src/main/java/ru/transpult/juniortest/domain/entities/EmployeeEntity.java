@@ -25,12 +25,27 @@ public class EmployeeEntity {
     private String name;
     @Column(name="surname")
     private String surName;
+//    @Column(name="department_id")
+//    private int department_id;
 
-    private int department_id;
+//    @OneToMany(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "department_id")
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name="empldepartment",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "department_id")
+    )
+//    @JoinColumn (name="department_id",referencedColumnName="department")
+    private DepartmentEntity department;
 
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name="id")
-//    private DepartmentEntity department;
+//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name="subdepartments",
+//            joinColumns = @JoinColumn(name="department_id"),
+//            inverseJoinColumns = @JoinColumn(name="subdepartment_id")
+//    )
+//    private DepartmentEntity departments;
 
     public EmployeeEntity() {
 
@@ -60,19 +75,19 @@ public class EmployeeEntity {
         this.surName = surName;
     }
 
-    public int getDepartment_id() {
-        return department_id;
-    }
-
-    public void setDepartment_id(int department_id) {
-        this.department_id = department_id;
-    }
-
-//    public DepartmentEntity getDepartment() {
-//        return department;
+//    public int getDepartment_id() {
+//        return department_id;
 //    }
 //
-//    public void setDepartment(DepartmentEntity department) {
-//        this.department = department;
+//    public void setDepartment_id(int department_id) {
+//        this.department_id = department_id;
 //    }
+
+    public DepartmentEntity getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(DepartmentEntity department) {
+        this.department = department;
+    }
 }

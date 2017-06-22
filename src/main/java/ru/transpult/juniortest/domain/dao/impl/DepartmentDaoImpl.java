@@ -53,7 +53,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
             Department department = new Department();
             mapperFacade.map(de,department);
 //             Department department = new Department();
-//             mapperFacade.map(ee.getDepartment(), department);
+//             employeeMapperFacade.map(ee.getDepartment(), department);
 //             employee.setDepartment(department);
             departments.add(department);
             System.out.println(department.toString());

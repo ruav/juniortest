@@ -14,6 +14,7 @@ public class Employee implements Serializable{
     private String surName;
 
     private int department_id;
+    private Department department;
 
     public Employee() {
     }
@@ -48,5 +49,13 @@ public class Employee implements Serializable{
 
     public void setDepartment_id(int department_id) {
         this.department_id = department_id;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
