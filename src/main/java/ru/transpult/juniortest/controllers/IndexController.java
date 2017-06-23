@@ -20,6 +20,6 @@ public class IndexController {
     
     @RequestMapping("/")
     public String index() throws SystemException {
-	return "resources/index2";
+	return "index2";
     }
 }

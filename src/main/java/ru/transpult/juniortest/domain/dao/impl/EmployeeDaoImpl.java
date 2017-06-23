@@ -15,6 +15,7 @@ import ru.transpult.juniortest.pojo.Employee;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -109,7 +110,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
     public List<Employee> getAll() {
         List<Employee> employees = new ArrayList<>();
 
-        Query q = entityManager.createQuery("select b from EmployeeEntity b", EmployeeEntity.class);
+        TypedQuery<EmployeeEntity> q = entityManager.createQuery("select b from EmployeeEntity b", EmployeeEntity.class);
 
 //        entityManager.getTransaction().begin();
 
@@ -121,6 +122,8 @@ public class EmployeeDaoImpl implements EmployeeDao{
             if(ee.getDepartment() != null) {
                 Department department = new Department();
                 departmentMapperFacade.map(ee.getDepartment(),department);
+                department.setEmployees(new HashSet<>());
+                department.setDepartments(new HashSet<>());
                 employee.setDepartment(department);
                 employee.setDepartment_id(ee.getDepartment().getId());
             }

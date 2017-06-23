@@ -58,4 +58,15 @@ public class Employee implements Serializable{
     public void setDepartment(Department department) {
         this.department = department;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surName='" + surName + '\'' +
+                ", department_id=" + department_id +
+                ", department=" + department +
+                '}';
+    }
 }

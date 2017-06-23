@@ -6,8 +6,19 @@ Ext.Loader.setConfig({
 
 Ext.application({
   name : 'J',
-  appFolder : 'resources/frontend',
+  appFolder : 'resources/app',
   autoCreateViewport : true,
-  layout : 'fit'
+  requires : ['Ext.container.Viewport'],
+  layout : 'fit',
+    controllers: ['Employees'],
+
+    launch: function() {
+        Ext.create('Ext.container.Viewport', {
+            layout: 'fit',
+            items: {
+                xtype: 'employeelist'
+            }
+        });
+    }
   
 });
